@@ -19,8 +19,7 @@ int main() {
 /* Copy the line from input to the line[] array. Return the size of that line */
 
 int get_line(char line[], int limit) {
-  int c;
-  int i = 0;
+  int c, i;
 
   for (i = 0; (c = getchar()) != EOF && c != '\n' && i < limit - 1; ++i)
     line[i] = c;
