@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
 
 bool contains(char s[], char c);
 void squeeze();
 
 int main() {
-  char s1[1024], s2[1024];
-
+  char s1[] = "Hello, world!";
+  char s2[] = "Hello, earth.";
+  squeeze(s1, s2);
+  printf("%s\n", s1);
+  return 0;
 }
 
 /* Removes from s1 all chars presented in s2 */
@@ -15,12 +17,14 @@ int main() {
 void squeeze(char s1[], char s2[]) {
   int i, j;
   i = j = 0;
-  while (i != '\0') {
+  while (s1[i] != '\0') {
     if (contains(s2, s1[i])) {
+      i++;
+    } else {
       s1[j] = s1[i];
+      i++;
       j++;
     }
-    i++;
   }
   s1[j] = '\0';
 }
